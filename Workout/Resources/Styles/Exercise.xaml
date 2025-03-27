@@ -1,0 +1,31 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+        <!-- Light Gray Label Style -->
+    <Style x:Key="LightGrayLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="LightGray"/>
+    </Style>
+
+    <!-- Dark Gray Label Style -->
+    <Style x:Key="DarkGrayLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="DarkGoldenrod"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <!-- Black Label Style -->
+    <Style x:Key="BlackLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="Black"/>
+    </Style>
+
+    <!-- Header Label Style -->
+    <Style x:Key="HeaderLabelStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Title"/>
+    </Style>
+
+    <Style x:Key="BlackHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+        <Setter Property="TextColor" Value="Black"/>
+    </Style>
+
+
+</ResourceDictionary>

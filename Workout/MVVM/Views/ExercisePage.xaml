@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    Title="ExercisePage"
+    x:Class="Workout.MVVM.Views.ExercisePage"
+    x:DataType="viewModels:MainPageViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:models="clr-namespace:Workout.MVVM.Models;assembly=Workout"
+    xmlns:viewModels="clr-namespace:Workout.MVVM.ViewModels;assembly=Workout"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Spacing="20">
+        <Label Style="{StaticResource BlackHeaderLabelStyle}" Text="Wait lose workout" />
+        <VerticalStackLayout Spacing="10">
+            <Label Style="{StaticResource DarkGrayLabelStyle}" Text="Categories" />
+            <CollectionView HeightRequest="200" ItemsSource="{Binding Categories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Category">
+                        <Grid ColumnDefinitions="Auto" RowDefinitions="Auto">
+                            <Border
+                                Background="LightBlue"
+                                HorizontalOptions="Start"
+                                Margin="15"
+                                Stroke="DimGray"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1">
+                                <VerticalStackLayout Padding="10" Spacing="10">
+                                    <Label Style="{StaticResource BlackHeaderLabelStyle}" Text="{Binding PendingExercises, StringFormat='{0} Pending '}" />
+                                    <Label Style="{StaticResource BlackHeaderLabelStyle}" Text="{Binding Title}" />
+                                    <ProgressBar Progress="{Binding Percentage}" ProgressColor="IndianRed" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ListView ItemsSource="{Binding Exercises}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Exercise">
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <CheckBox
+                                    CheckedChanged="CheckBox_OnCheckedChanged"
+                                    Grid.Column="0"
+                                    IsChecked="{Binding IsCompleted}" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    Grid.Column="1"
+                                    Text="{Binding Name}"
+                                    VerticalTextAlignment="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
