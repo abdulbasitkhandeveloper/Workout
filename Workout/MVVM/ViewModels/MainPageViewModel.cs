@@ -12,8 +12,8 @@ public class MainPageViewModel
     
     public MainPageViewModel()
     {
-        // Categories = new ObservableCollection<Category>();
-        // Exercises = new ObservableCollection<Exercise>();
+        Categories = new ObservableCollection<Category>();
+        Exercises = new ObservableCollection<Exercise>();
         LoadData();
         Calculation();
     }
@@ -35,13 +35,13 @@ public class MainPageViewModel
         Categories = new ObservableCollection<Category>()
         {
             new Category() { Id = 1, Title = "Abs" },
-            new Category() { Id = 2, Title = "Love" },
-            new Category() { Id = 3, Title = "Nice" },
-            new Category() { Id = 4, Title = "Arm" },
+            new Category() { Id = 2, Title = "Lower Body" },
+            new Category() { Id = 3, Title = "Legs" },
+            new Category() { Id = 4, Title = "Arms" },
             new Category() { Id = 5, Title = "Full Body" },
             new Category() { Id = 6, Title = "Back" },
-            new Category() { Id = 7, Title = "Shoulder" },
-            new Category() { Id = 8, Title = "Bicep" },
+            new Category() { Id = 7, Title = "Shoulders" },
+            new Category() { Id = 8, Title = "Biceps" },
             new Category() { Id = 9, Title = "Chest" }
         };
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    Title="Add New Exercise"
+    x:Class="Workout.MVVM.Views.AddExercise"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Workout.MVVM.Models;assembly=Workout"
+    xmlns:viewModels="clr-namespace:Workout.MVVM.ViewModels;assembly=Workout"
+    x:DataType="viewModels:AddNewViewModel">
+
+    <Grid RowDefinitions="*, Auto"
+            Padding="10">
+        <VerticalStackLayout Grid.Row="0"
+                Padding="10">
+            <Entry Placeholder="Enter A New Exercise"
+                   Text="{Binding Exercise}"
+                   Style="{StaticResource BlackHeaderLabelStyle}"/>
+            <CollectionView ItemsSource="{Binding Categories}"
+                            Margin="0,10,0,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     HorizontalItemSpacing="5"
+                                     VerticalItemSpacing="5"
+                                     Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Category">
+                        <Border StrokeShape="RoundRectangle 5"
+                                Padding="5">
+                            <RadioButton Content="{Binding Title}"
+                                         VerticalOptions="Center"
+                                         GroupName="Category"
+                                         IsChecked="{Binding IsSelected}"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+        <FlexLayout
+            Grid.Row="1"
+            JustifyContent="SpaceBetween"
+            Padding="10">
+            <Button Text="Add Exercise" Clicked="Add_New_Exercise_Clicked"/>
+            <Button Text="Add Category" Clicked="Add_New_Category_Clicked"/>
+        </FlexLayout>
+    </Grid>
+</ContentPage>

@@ -11,4 +11,6 @@ public class Category
     public int PendingExercises { get; set; }
 
     public float Percentage { get; set; }
+
+    public bool IsSelected { get; set; }
 } 

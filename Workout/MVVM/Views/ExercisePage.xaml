@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
-    Title="ExercisePage"
+    Title="Exercise Page"
     x:Class="Workout.MVVM.Views.ExercisePage"
     x:DataType="viewModels:MainPageViewModel"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:models="clr-namespace:Workout.MVVM.Models;assembly=Workout"
     xmlns:viewModels="clr-namespace:Workout.MVVM.ViewModels;assembly=Workout"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="Button_OnClicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
+    </ContentPage.ToolbarItems>
 
-    <VerticalStackLayout Spacing="20">
-        <Label Style="{StaticResource BlackHeaderLabelStyle}" Text="Wait lose workout" />
+    <VerticalStackLayout Padding="10" Spacing="20">
+        <Grid ColumnDefinitions="*, Auto">
+            <Label
+                Grid.Column="0"
+                Style="{StaticResource BlackHeaderLabelStyle}"
+                Text="Weight Loss Workout"
+                VerticalOptions="Center" />
+        </Grid>
         <VerticalStackLayout Spacing="10">
             <Label Style="{StaticResource DarkGrayLabelStyle}" Text="Categories" />
-            <CollectionView HeightRequest="200" ItemsSource="{Binding Categories}">
+            <CollectionView ItemsUpdatingScrollMode="KeepLastItemInView" HeightRequest="200" ItemsSource="{Binding Categories}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
                 </CollectionView.ItemsLayout>
@@ -21,7 +30,7 @@
                     <DataTemplate x:DataType="models:Category">
                         <Grid ColumnDefinitions="Auto" RowDefinitions="Auto">
                             <Border
-                                Background="LightBlue"
+                                Background="#FFA39DFD"
                                 HorizontalOptions="Start"
                                 Margin="15"
                                 Stroke="DimGray"
@@ -30,7 +39,7 @@
                                 <VerticalStackLayout Padding="10" Spacing="10">
                                     <Label Style="{StaticResource BlackHeaderLabelStyle}" Text="{Binding PendingExercises, StringFormat='{0} Pending '}" />
                                     <Label Style="{StaticResource BlackHeaderLabelStyle}" Text="{Binding Title}" />
-                                    <ProgressBar Progress="{Binding Percentage}" ProgressColor="IndianRed" />
+                                    <ProgressBar Progress="{Binding Percentage}" ProgressColor="#FFA5FFC7"  BackgroundColor="#FFF2F242"/>
                                 </VerticalStackLayout>
                             </Border>
                         </Grid>

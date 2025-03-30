@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Workout.MVVM.Views.Crud"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <VerticalStackLayout>
+        <Entry Placeholder="Name" x:Name="nameText" />
+        <Entry
+            Keyboard="Numeric"
+            Placeholder="Price"
+            x:Name="priceText" />
+        <Editor Placeholder="Description" x:Name="desText" />
+        <Button Clicked="Button_OnClicked" Text="Save" />
+        <Button Clicked="Button_OnClicked1" Text="Get Item" />
+        <Button Clicked="Button_OnClicked2" Text="Update Item" />
+    </VerticalStackLayout>
+</ContentPage>

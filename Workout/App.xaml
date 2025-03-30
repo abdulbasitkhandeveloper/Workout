@@ -5,6 +5,7 @@
              x:Class="Workout.App">
     <Application.Resources>
         <ResourceDictionary>
+             <Color x:Key="PrimaryColor">#1976D2</Color>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Exercise.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
